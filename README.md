@@ -8,7 +8,7 @@ The designs in this repository all come from [uidesigndaily.com](https://uidesig
 
 | Component    | YouTube video                                                                                    | Stack Used                             |
 | ------------ | ------------------------------------------------------------------------------------------------ | -------------------------------------- |
-| Billing page | [https://www.youtube.com/watch?v=uRWlGmcfpgw](https://www.youtube.com/watch?v=uRWlGmcfpgw&t=14s) | HTML, CSS, Tailwind, Fontawesome Icons |
 | About Card   | [https://www.youtube.com/watch?v=0_rkDl9NtjI](https://www.youtube.com/watch?v=0_rkDl9NtjI)       | React, Vite, TailwindCSS               |
+| Billing page | [https://www.youtube.com/watch?v=uRWlGmcfpgw](https://www.youtube.com/watch?v=uRWlGmcfpgw&t=14s) | HTML, CSS, Tailwind, Fontawesome Icons |
 
 Here is my channel: [TsbSankara](https://youtube.com/tsbsankara)
