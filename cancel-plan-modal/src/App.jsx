@@ -75,7 +75,7 @@ export default function App() {
                 </button>
               </div>
 
-              <p className="mt-5 text-lg leading-8 text-slate-600">
+              <p className="mt-5 leading-7 text-slate-600">
                 We&apos;re sorry to see you cancel your plan. To help us
                 improve, we have a few short questions for you before you leave
                 us.
@@ -120,7 +120,7 @@ export default function App() {
                           )}
                         </button>
 
-                        <span className="text-lg text-slate-700">
+                        <span className="text-slate-700">
                           {reason.label}
                         </span>
                       </label>
@@ -130,8 +130,8 @@ export default function App() {
               </div>
 
               <div className="mt-8">
-                <label className="block text-lg text-slate-800">
-                  Type ‘CANCEL’ to confirm.
+                <label className="block text-slate-800">
+                  Type &quot;CANCEL&quot; to confirm.
                 </label>
 
                 <input
@@ -139,17 +139,17 @@ export default function App() {
                   value={confirmText}
                   onChange={(e) => setConfirmText(e.target.value)}
                   placeholder="CANCEL"
-                  className="mt-3 h-14 w-full rounded-lg border border-violet-300 px-4 text-base text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                  className="mt-3 h-14 w-full rounded-lg border border-violet-300 px-4 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                 />
               </div>
 
-              <button className="mt-7 flex h-14 w-full items-center justify-center rounded-lg bg-rose-500 text-lg font-medium text-white transition hover:bg-rose-600">
+              <button className="mt-7 flex h-14 w-full items-center justify-center rounded-lg bg-rose-500 font-medium text-white transition hover:bg-rose-600">
                 Cancel plan
               </button>
 
               <button
                 onClick={() => setIsOpen(false)}
-                className="mt-5 w-full text-center text-lg font-medium text-slate-400 transition hover:text-slate-600"
+                className="mt-5 w-full text-center font-medium text-slate-400 transition hover:text-slate-600"
               >
                 Never mind
               </button>
