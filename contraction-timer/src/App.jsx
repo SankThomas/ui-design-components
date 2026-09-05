@@ -1,44 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, Bell } from "lucide-react";
-
-function formatClockTime(date) {
-  return date.toLocaleTimeString([], {
-    hour: "numeric",
-    minute: "2-digit",
-    hour12: true,
-  });
-}
-
-function formatDuration(seconds) {
-  const mins = Math.floor(seconds / 60);
-  const secs = seconds % 60;
-
-  if (mins <= 0) return `${secs} sec`;
-
-  return `${mins} min ${String(secs).padStart(2, "0")} sec`;
-}
-
-function formatTimer(totalSeconds) {
-  const hrs = String(Math.floor(totalSeconds / 3600)).padStart(2, "0");
-
-  const mins = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
-
-  const secs = String(totalSeconds % 60).padStart(2, "0");
-
-  return `${hrs}:${mins}:${secs}`;
-}
+import { formatClockTime, formatDuration, formatTimer } from "./utils";
 
 export default function App() {
   const [isTiming, setIsTiming] = useState(false);
-
   const [timer, setTimer] = useState(0);
-
   const [contractions, setContractions] = useState([]);
-
   const [lastContractionEnd, setLastContractionEnd] = useState(null);
 
   const intervalRef = useRef(null);
-
   const contractionStartRef = useRef(null);
 
   useEffect(() => {
@@ -53,9 +23,7 @@ export default function App() {
 
   const startContraction = () => {
     contractionStartRef.current = new Date();
-
     setTimer(0);
-
     setIsTiming(true);
   };
 
@@ -63,9 +31,7 @@ export default function App() {
     clearInterval(intervalRef.current);
 
     const endTime = new Date();
-
     const startTime = contractionStartRef.current;
-
     const duration = timer;
 
     let timeApart = null;
@@ -83,11 +49,8 @@ export default function App() {
     };
 
     setContractions((prev) => [newContraction, ...prev]);
-
     setLastContractionEnd(endTime);
-
     setIsTiming(false);
-
     setTimer(0);
   };
 
