@@ -84,9 +84,9 @@ export default function App() {
   return (
     <main className="flex min-h-screen items-center justify-center overflow-hidden bg-slate-100 px-4 py-10">
       <div className="relative w-full max-w-3xl">
-        <div className="absolute left-30 -top-10 hidden h-104 w-88 rounded-[4rem] bg-indigo-950 lg:block" />
+        <div className="absolute left-0 -top-5 hidden h-104 w-88 rounded-[4rem] bg-indigo-950 lg:block" />
 
-        <div className="relative ml-auto w-full max-w-xl rounded-4xl bg-white p-6 shadow-xl sm:p-8">
+        <div className="relative -left-20 ml-auto w-full max-w-xl rounded-4xl bg-white p-6 shadow-xl sm:p-8">
           <div className="space-y-5">
             <div className="space-y-4">
               <div>
