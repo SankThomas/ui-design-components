@@ -99,7 +99,10 @@ export default function App() {
                   measure the delivery of such content or advertisements to
                   extract insights about our website. We share this information
                   with our partners on the basis of consent and legitimate
-                  interest.
+                  interest. You may exercise your right to consent or object to
+                  a legitimate interest, based on a specific purpose below or at
+                  a partner level in the link under each purpose. These choices
+                  will be signaled to our vendors.
                 </p>
               </div>
 
