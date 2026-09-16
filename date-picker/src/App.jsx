@@ -98,15 +98,6 @@ export default function App() {
     },
   ];
 
-  const compareRanges = [
-    "Yesterday",
-    "This week",
-    "Last week",
-    "Last 14 days",
-    "Last 30 days",
-    "This year",
-  ];
-
   const handlePrevious = () => {
     setLeftMonth(
       new Date(leftMonth.getFullYear(), leftMonth.getMonth() - 1, 1),
@@ -154,17 +145,6 @@ export default function App() {
                       className="flex h-11 w-full items-center rounded-xl px-4 text-sm font-medium text-slate-700 transition hover:bg-rose-100"
                     >
                       {item.label}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="space-y-2">
-                  {compareRanges.map((item) => (
-                    <button
-                      key={item}
-                      className="flex h-11 w-full items-center rounded-xl px-4 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
-                    >
-                      {item}
                     </button>
                   ))}
                 </div>
