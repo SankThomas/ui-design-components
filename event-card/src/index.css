@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #4b5a8d;
+  --color-frame: #354575;
+  --color-ink: #18295e;
+  --color-muted-ink: #43527e;
+  --color-action: #16275e;
+}
+
+* {
+  font-family: "Geist", sans-serif;
+}
+
+@layer base {
+  html {
+    @apply bg-canvas;
+  }
+
+  body {
+    @apply m-0 min-w-80 bg-canvas font-sans text-ink antialiased;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply grid min-h-screen place-items-center px-4 py-8 sm:px-6;
+  }
+
+  .event-frame {
+    @apply w-full max-w-130 rounded-2xl bg-frame p-7 sm:p-8;
+  }
+
+  .event-card {
+    @apply flex min-h-77 flex-col rounded-2xl bg-white px-6 py-7 sm:min-h-78 sm:px-11 sm:py-11;
+  }
+
+  .event-meta {
+    @apply text-sm font-bold tracking-tight text-muted-ink;
+  }
+
+  .event-title {
+    @apply mt-4 max-w-95 text-[22px] font-bold leading-[1.42] tracking-[-0.02em] text-ink;
+  }
+
+  .event-location {
+    @apply mt-4 flex items-center gap-2 text-base font-semibold text-ink;
+  }
+
+  .event-footer {
+    @apply mt-auto flex items-center justify-between gap-4 pt-8;
+  }
+
+  .attendee-stack {
+    @apply flex items-center;
+  }
+
+  .attendee-avatar {
+    @apply size-9 overflow-hidden rounded-full border-2 border-white bg-slate-200 object-cover shadow-sm;
+  }
+
+  .attendee-avatar + .attendee-avatar {
+    @apply -ml-2;
+  }
+
+  .attendee-more {
+    @apply ml-3 text-sm font-medium text-muted-ink;
+  }
+
+  .attend-button {
+    @apply inline-flex min-w-27.5 items-center justify-center gap-1.5 rounded bg-action px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:-translate-y-px hover:bg-[#20346f] focus:outline-none focus:ring-2 focus:ring-action/30 focus:ring-offset-2 active:translate-y-0;
+  }
+
+  .attend-button.is-attending {
+    @apply bg-emerald-700 hover:bg-emerald-700;
+  }
+}
