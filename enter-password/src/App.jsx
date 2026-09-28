@@ -1,121 +1,219 @@
 import { useState } from "react";
 import { Lock, Eye, EyeOff } from "lucide-react";
 
+const API_URL = "https://dummyjson.com";
+
 export default function App() {
-  const [password, setPassword] = useState("password123");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [staySignedIn, setStaySignedIn] = useState(true);
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [user, setUser] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+
+    if (error) {
+      setError("");
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!password.trim()) {
-      alert("Please enter your password.");
+      setError("Please enter your password.");
       return;
     }
 
-    alert(`Password submitted\nStay signed in: ${staySignedIn ? "Yes" : "No"}`);
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(`${API_URL}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          username: "emilys",
+          password,
+          expiresInMins: staySignedIn ? 30 : 5,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || "Invalid password.");
+        return;
+      }
+
+      setUser(data);
+    } catch (error) {
+      console.error("Login error:", error);
+      setError("Unable to connect to the server. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleResetPassword = () => {
-    alert("Password reset link sent.");
+    alert("Password reset functionality is not available in this demo.");
   };
 
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-neutral-200 px-6">
-      <div className="flex min-h-screen w-full max-w-[960px] items-center justify-center bg-neutral-100">
-        <div className="w-full max-w-[520px] rounded-3xl bg-white px-16 py-14 shadow-2xl">
-          <h1 className="mb-10 text-[22px] font-bold tracking-[-0.02em] text-slate-900">
-            Enter your password
-          </h1>
+  const handleLogout = () => {
+    setUser(null);
+    setPassword("");
+  };
 
-          <div className="mb-8 flex items-center gap-4">
+  if (user) {
+    return (
+      <main className="app">
+        <div className="app-container">
+          <div className="password-card">
+            <h1 className="password-title">Welcome back</h1>
+
+            <div className="account-info">
+              <img
+                src={user.image}
+                alt={`${user.firstName} ${user.lastName}`}
+                className="profile-image"
+              />
+
+              <div>
+                <p className="account-type">Business Account</p>
+
+                <p className="account-name">
+                  {user.firstName} {user.lastName}
+                </p>
+              </div>
+            </div>
+
+            <p className="account-email">{user.email}</p>
+
+            <div className="authenticated-actions">
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="continue-button"
+              >
+                Sign out
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  return (
+    <main className="app">
+      <div className="app-container">
+        <div className="password-card">
+          <h1 className="password-title">Enter your password</h1>
+
+          <div className="account-info">
             <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80"
-              alt="Profile"
-              className="size-14 rounded-full object-cover"
+              src="https://dummyjson.com/icon/emilys/128"
+              alt="Emily Johnson"
+              className="profile-image"
             />
 
             <div>
-              <p className="text-xs text-slate-700">Business Account</p>
+              <p className="account-type">Business Account</p>
 
-              <p className="text-xl font-semibold text-slate-900">
-                Sarah Bills
-              </p>
+              <p className="account-name">Emily Johnson</p>
             </div>
           </div>
 
-          <form onSubmit={handleSubmit}>
-            <label
-              htmlFor="password"
-              className="mb-2 block text-sm font-medium text-slate-900"
-            >
+          <form onSubmit={handleSubmit} noValidate>
+            <label htmlFor="password" className="password-label">
               Password
             </label>
 
-            <div className="mb-8 flex items-center gap-3">
-              <div className="relative flex-1">
-                <Lock className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-500" />
+            <div className="password-input-row">
+              <div className="password-input-wrapper">
+                <Lock className="password-icon" aria-hidden="true" />
 
                 <input
                   name="password"
                   id="password"
                   type={showPassword ? "text" : "password"}
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="h-14 w-full rounded-xl border border-slate-400 bg-white pl-12 pr-4 text-sm text-slate-900 outline-none transition focus:border-slate-700"
+                  onChange={handlePasswordChange}
+                  autoComplete="current-password"
+                  aria-invalid={Boolean(error)}
+                  aria-describedby={error ? "password-error" : undefined}
+                  className={`password-input ${
+                    error ? "password-input-error" : ""
+                  }`}
                 />
               </div>
 
               <button
                 type="button"
                 onClick={() => setShowPassword((value) => !value)}
-                className="flex items-center justify-center text-slate-600 transition hover:text-slate-900 gap-1"
+                className="password-visibility-button"
                 aria-label={showPassword ? "Hide password" : "Show password"}
+                aria-pressed={showPassword}
               >
                 {showPassword ? (
-                  <EyeOff className="size-5" />
+                  <EyeOff className="visibility-icon" aria-hidden="true" />
                 ) : (
-                  <Eye className="size-5" />
+                  <Eye className="visibility-icon" aria-hidden="true" />
                 )}
               </button>
             </div>
 
-            <div className="mb-10 flex items-center justify-between">
+            {error && (
+              <p id="password-error" className="password-error" role="alert">
+                {error}
+              </p>
+            )}
+
+            <div className="password-actions">
               <button
                 type="button"
                 onClick={() => setStaySignedIn((value) => !value)}
-                className="flex items-center gap-3"
+                className="stay-signed-in"
+                aria-pressed={staySignedIn}
               >
                 <div
-                  className={`relative h-8.5 w-18 rounded-full border transition ${staySignedIn ? "border-slate-400 bg-white" : "border-slate-300 bg-slate-900"}`}
+                  className={`stay-signed-in-switch ${
+                    staySignedIn
+                      ? "stay-signed-in-switch-active"
+                      : "stay-signed-in-switch-inactive"
+                  }`}
+                  aria-hidden="true"
                 >
                   <div
-                    className={`absolute top-1 size-6 rounded-full bg-slate-900 transition-all ${
+                    className={`stay-signed-in-indicator ${
                       staySignedIn
-                        ? "left-1 translate-x-0"
-                        : "translate-x-10 bg-white"
+                        ? "stay-signed-in-indicator-active"
+                        : "stay-signed-in-indicator-inactive"
                     }`}
                   />
                 </div>
 
-                <span className="text-base font-medium text-slate-800">
-                  Stay signed in
-                </span>
+                <span className="stay-signed-in-label">Stay signed in</span>
               </button>
 
               <button
                 type="submit"
-                className="h-12 rounded-xl bg-slate-900 px-8 text-base font-medium text-white transition hover:bg-slate-800"
+                className="continue-button"
+                disabled={isSubmitting}
               >
-                Continue
+                {isSubmitting ? "Signing in..." : "Continue"}
               </button>
             </div>
 
             <button
               type="button"
               onClick={handleResetPassword}
-              className="text-base font-medium text-slate-900 underline underline-offset-4"
+              className="reset-password-button"
             >
               Reset password
             </button>
