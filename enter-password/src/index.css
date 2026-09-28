@@ -8,3 +8,139 @@
 button {
   @apply cursor-pointer;
 }
+
+.app {
+  @apply flex min-h-screen items-center justify-center bg-neutral-200 px-6;
+}
+
+.app-container {
+  @apply flex min-h-screen w-full max-w-240 items-center justify-center bg-neutral-100;
+}
+
+.password-card {
+  @apply w-full max-w-130 rounded-3xl bg-white px-16 py-14 shadow-2xl;
+}
+
+.password-title {
+  @apply mb-10 text-[22px] font-bold tracking-[-0.02em] text-slate-900;
+}
+
+.account-info {
+  @apply mb-8 flex items-center gap-4;
+}
+
+.profile-image {
+  @apply size-14 rounded-full object-cover;
+}
+
+.account-type {
+  @apply text-xs text-slate-700;
+}
+
+.account-name {
+  @apply text-xl font-semibold text-slate-900;
+}
+
+.account-email {
+  @apply mb-8 text-sm text-slate-600;
+}
+
+.password-label {
+  @apply mb-2 block text-sm font-medium text-slate-900;
+}
+
+.password-input-row {
+  @apply mb-8 flex items-center gap-3;
+}
+
+.password-input-wrapper {
+  @apply relative flex-1;
+}
+
+.password-icon {
+  @apply absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-500;
+}
+
+.password-input {
+  @apply h-14 w-full rounded-xl border border-slate-400 bg-white pl-12 pr-4 text-sm text-slate-900 outline-none transition focus:border-slate-700;
+}
+
+.password-input-error {
+  @apply border-red-500 focus:border-red-500;
+}
+
+.password-visibility-button {
+  @apply flex items-center justify-center gap-1 text-slate-600 transition hover:text-slate-900;
+}
+
+.visibility-icon {
+  @apply size-5;
+}
+
+.password-error {
+  @apply -mt-6 mb-8 text-sm text-red-600;
+}
+
+.password-actions {
+  @apply mb-10 flex items-center justify-between;
+}
+
+.stay-signed-in {
+  @apply flex items-center gap-3;
+}
+
+.stay-signed-in-switch {
+  @apply relative h-8.5 w-18 rounded-full border transition;
+}
+
+.stay-signed-in-switch-active {
+  @apply border-slate-400 bg-white;
+}
+
+.stay-signed-in-switch-inactive {
+  @apply border-slate-300 bg-slate-900;
+}
+
+.stay-signed-in-indicator {
+  @apply absolute top-1 size-6 rounded-full transition-all;
+}
+
+.stay-signed-in-indicator-active {
+  @apply left-1 translate-x-0 bg-slate-900;
+}
+
+.stay-signed-in-indicator-inactive {
+  @apply translate-x-10 bg-white;
+}
+
+.stay-signed-in-label {
+  @apply text-base font-medium text-slate-800;
+}
+
+.continue-button {
+  @apply h-12 rounded-xl bg-slate-900 px-8 text-base font-medium text-white transition hover:bg-slate-800;
+}
+
+.continue-button:disabled {
+  @apply cursor-not-allowed opacity-60;
+}
+
+.reset-password-button {
+  @apply text-base font-medium text-slate-900 underline underline-offset-4;
+}
+
+.authenticated-actions {
+  @apply flex justify-end;
+}
+
+.password-input-error {
+  @apply border-red-500 focus:border-red-500;
+}
+
+.password-error {
+  @apply -mt-6 mb-8 text-sm text-red-600;
+}
+
+.continue-button:disabled {
+  @apply cursor-not-allowed opacity-60;
+}
