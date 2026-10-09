@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+:root {
+  font-family: "Geist", sans-serif;
+  color: #20275d;
+  background: #f5f8ff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply m-0 min-h-screen bg-[#f5f8ff] text-[#20275d];
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+.app {
+  @apply relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-10 sm:px-6;
+}
+
+.background-shape {
+  @apply absolute left-1/2 top-1/2 h-142.5 w-[min(92vw,32rem)] -translate-x-[56%] -translate-y-[54%] rounded-[2.5rem] bg-[#3bd8b6] sm:h-142.5 sm:w-128;
+}
+
+.message-panel {
+  @apply relative z-10 w-full max-w-136 rounded-[2.25rem] bg-white px-6 py-10 shadow-[0_25px_55px_rgba(58,213,230,0.2)] sm:px-16 sm:py-16;
+}
+
+.message-title {
+  @apply mb-7 font-serif text-2xl font-bold tracking-[-0.025em] text-[#20275d] sm:text-[1.65rem];
+}
+
+.compose-button {
+  @apply flex h-18 w-full items-center justify-center gap-4 rounded-2xl bg-[#22295f] text-base font-medium text-white transition duration-200 hover:bg-[#1b214f] active:scale-[0.99] sm:h-17;
+}
+
+.compose-icon {
+  @apply size-5;
+}
+
+.message-list {
+  @apply mt-7 space-y-1;
+}
+
+.message-item {
+  @apply flex w-full items-center gap-3 rounded-2xl px-2 py-3 text-left transition-colors duration-200;
+}
+
+.message-item:hover {
+  @apply bg-[#f5f7fd];
+}
+
+.message-item-selected {
+  @apply bg-[#f3f6fc] hover:bg-[#f3f6fc];
+}
+
+.avatar-wrapper {
+  @apply relative size-17 shrink-0;
+}
+
+.avatar {
+  @apply size-full rounded-full object-cover;
+}
+
+.status-dot {
+  @apply absolute right-0.5 top-0.5 size-4 rounded-full border-2 border-white;
+}
+
+.status-online {
+  @apply bg-[#35d5a8];
+}
+
+.status-busy {
+  @apply bg-[#ed763c];
+}
+
+.status-offline {
+  @apply bg-[#d5d7d9];
+}
+
+.message-content {
+  @apply min-w-0 flex-1;
+}
+
+.message-top {
+  @apply flex items-center justify-between gap-3;
+}
+
+.sender-name {
+  @apply truncate text-base font-bold text-[#20275d];
+}
+
+.message-date {
+  @apply shrink-0 text-xs font-medium text-[#8589a7] sm:text-[0.8rem];
+}
+
+.message-preview {
+  @apply mt-2 truncate text-base font-medium text-[#20275d];
+}
+
+.modal-backdrop {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-[#111637]/40 px-4 py-6 backdrop-blur-sm;
+}
+
+.compose-modal {
+  @apply w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl sm:p-8;
+}
+
+.modal-header {
+  @apply mb-6 flex items-center justify-between;
+}
+
+.modal-title {
+  @apply font-serif text-2xl font-bold text-[#20275d];
+}
+
+.close-button {
+  @apply flex size-10 items-center justify-center rounded-full text-[#777c9d] transition hover:bg-[#f3f5fa] hover:text-[#20275d];
+}
+
+.close-icon {
+  @apply size-5;
+}
+
+.form-group {
+  @apply mb-5;
+}
+
+.form-label {
+  @apply mb-2 block text-sm font-semibold text-[#20275d];
+}
+
+.form-input,
+.form-textarea {
+  @apply w-full rounded-xl border border-[#e3e6ef] bg-[#fafbfe] px-4 py-3 text-sm text-[#20275d] outline-none transition placeholder:text-[#a2a5b9] focus:border-[#3bd8b6] focus:ring-2 focus:ring-[#3bd8b6]/15;
+}
+
+.form-textarea {
+  @apply min-h-32 resize-none;
+}
+
+.modal-actions {
+  @apply mt-7 flex justify-end gap-3;
+}
+
+.cancel-button {
+  @apply rounded-xl px-5 py-3 text-sm font-semibold text-[#707593] transition hover:bg-[#f4f5f9];
+}
+
+.send-button {
+  @apply flex items-center gap-2 rounded-xl bg-[#22295f] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1b214f] disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.send-icon {
+  @apply size-4;
+}
+
+.detail-modal {
+  @apply w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl sm:p-8;
+}
+
+.detail-user {
+  @apply flex items-center gap-4;
+}
+
+.detail-avatar {
+  @apply size-16 rounded-full object-cover;
+}
+
+.detail-name {
+  @apply font-bold text-[#20275d];
+}
+
+.detail-status {
+  @apply mt-1 text-sm text-[#35b993];
+}
+
+.detail-message {
+  @apply mt-7 rounded-2xl bg-[#f5f7fc] p-5 text-base leading-7 text-[#20275d];
+}
+
+.detail-date {
+  @apply mt-4 text-right text-xs text-[#8589a7];
+}
+
+.toast {
+  @apply fixed bottom-5 left-1/2 z-60 -translate-x-1/2 rounded-xl bg-[#22295f] px-5 py-3 text-sm font-medium text-white shadow-xl;
+}

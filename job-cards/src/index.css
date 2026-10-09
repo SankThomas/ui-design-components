@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    @apply m-0 min-h-screen bg-[#f3f6ff] text-[#1e254f] antialiased;
+    font-family: "Geist";
+  }
+
+  button {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .jobs-page {
+    @apply min-h-screen bg-[#f3f6ff];
+  }
+
+  .jobs-section {
+    @apply px-4 py-16 sm:px-6 sm:py-20 lg:py-24;
+  }
+
+  .jobs-container {
+    @apply mx-auto w-full max-w-232;
+  }
+
+  .jobs-header {
+    @apply mb-10 text-center sm:mb-12;
+  }
+
+  .jobs-title {
+    @apply m-0 text-3xl font-bold tracking-[-0.02em] text-[#202750] sm:text-4xl;
+  }
+
+  .department-grid {
+    @apply grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .department-card {
+    @apply flex min-h-55 flex-col justify-between rounded-2xl bg-white p-7 shadow-[0_16px_35px_rgba(70,90,150,0.10)] transition-transform duration-200 hover:-translate-y-0.5;
+  }
+
+  .department-heading {
+    @apply flex items-center gap-3.5;
+  }
+
+  .department-icon {
+    @apply flex size-14 shrink-0 items-center justify-center rounded-xl;
+  }
+
+  .department-name {
+    @apply m-0 text-[1.25rem] font-medium tracking-[-0.02em] text-[#202750];
+  }
+
+  .department-icon-design {
+    @apply bg-linear-to-br from-[#c5c9ff] to-[#e6c8ff] text-[#252b58];
+  }
+
+  .department-icon-engineering {
+    @apply bg-linear-to-br from-[#f6b4d3] to-[#ffc4cb] text-[#252b58];
+  }
+
+  .department-icon-operations {
+    @apply bg-linear-to-br from-[#b9e8fb] to-[#d9d4ff] text-[#252b58];
+  }
+
+  .department-icon-people {
+    @apply bg-linear-to-br from-[#b7efdf] to-[#c5d9ff] text-[#252b58];
+  }
+
+  .department-icon-sales {
+    @apply bg-linear-to-br from-[#bedcff] to-[#ffd5d8] text-[#252b58];
+  }
+
+  .department-icon-university {
+    @apply bg-linear-to-br from-[#ffd8b5] to-[#d8d7ff] text-[#252b58];
+  }
+
+  .positions-button {
+    @apply mt-7 h-13 w-full cursor-pointer rounded-md border border-[#c8cce7] bg-white px-4 text-base font-medium text-[#202750] transition-all duration-200 hover:border-[#202750] hover:bg-[#f8f9ff] focus:outline-none focus:ring-2 focus:ring-[#8b92cf] focus:ring-offset-2;
+  }
+
+  .positions-button-active {
+    @apply border-[#202750] bg-[#202750] text-white hover:bg-[#292f5e];
+  }
+
+  .equal-opportunity {
+    @apply mx-auto mt-14 max-w-185 text-center text-sm font-medium leading-5 text-[#626987] sm:mt-16 sm:text-[0.95rem] sm:leading-5;
+  }
+
+  .modal-backdrop {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-[#18203f]/35 p-4 backdrop-blur-sm;
+  }
+
+  .jobs-modal {
+    @apply max-h-[85vh] w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl;
+  }
+
+  .modal-header {
+    @apply flex items-start justify-between border-b border-[#e8eaf3] px-6 py-5;
+  }
+
+  .modal-eyebrow {
+    @apply mb-1 text-xs font-semibold uppercase tracking-wider text-[#747b9e];
+  }
+
+  .modal-title {
+    @apply m-0 text-2xl font-bold text-[#202750];
+  }
+
+  .modal-close {
+    @apply flex size-9 cursor-pointer items-center justify-center rounded-full text-[#626987] transition-colors hover:bg-[#f0f2fa] hover:text-[#202750] focus:outline-none focus:ring-2 focus:ring-[#8b92cf];
+  }
+
+  .job-list {
+    @apply max-h-[65vh] overflow-y-auto p-4;
+  }
+
+  .job-item {
+    @apply flex w-full cursor-pointer items-center justify-between rounded-xl border border-[#e5e7f0] bg-white p-4 text-left transition-all duration-200 hover:border-[#b8bee0] hover:bg-[#f8f9ff];
+  }
+
+  .job-item + .job-item {
+    @apply mt-3;
+  }
+
+  .job-item-content {
+    @apply flex items-start gap-3 text-[#202750];
+  }
+
+  .job-item-content > svg {
+    @apply mt-0.5 shrink-0 text-[#6e76a5];
+  }
+
+  .job-item h3 {
+    @apply m-0 text-base font-semibold;
+  }
+
+  .job-meta {
+    @apply mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#747b9e];
+  }
+
+  .job-meta span {
+    @apply flex items-center gap-1;
+  }
+
+  .modal-back-button {
+    @apply inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-[#626987] transition-colors hover:text-[#202750];
+  }
+
+  .job-details {
+    @apply max-h-[75vh] overflow-y-auto px-6 py-7;
+  }
+
+  .job-details-icon {
+    @apply mb-4 flex size-12 items-center justify-center rounded-xl bg-[#eef0ff] text-[#202750];
+  }
+
+  .job-details-meta {
+    @apply mt-5 flex flex-wrap gap-x-5 gap-y-2 border-y border-[#e8eaf3] py-4 text-sm text-[#626987];
+  }
+
+  .job-details-meta span {
+    @apply flex items-center gap-1.5;
+  }
+
+  .job-description {
+    @apply mt-6 text-sm leading-6 text-[#626987];
+  }
+
+  .job-description h3 {
+    @apply mb-2 mt-6 text-base font-semibold text-[#202750];
+  }
+
+  .job-description h3:first-child {
+    @apply mt-0;
+  }
+
+  .job-description p {
+    @apply mb-3;
+  }
+
+  .job-description ul {
+    @apply mb-4 list-disc space-y-1 pl-5;
+  }
+
+  .apply-button {
+    @apply inline-flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#202750] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#292f5e] focus:outline-none focus:ring-2 focus:ring-[#8b92cf] focus:ring-offset-2;
+  }
+
+  .apply-button:disabled {
+    @apply cursor-not-allowed opacity-60;
+  }
+
+  .job-details .apply-button {
+    @apply mt-7;
+  }
+
+  .application-form {
+    @apply max-h-[75vh] overflow-y-auto px-6 py-7;
+  }
+
+  .application-heading {
+    @apply mb-6;
+  }
+
+  .application-heading > p:last-child {
+    @apply mt-2 text-sm text-[#747b9e];
+  }
+
+  .form-grid {
+    @apply grid grid-cols-1 gap-4 sm:grid-cols-2;
+  }
+
+  .form-field {
+    @apply flex flex-col gap-1.5;
+  }
+
+  .form-field-full {
+    @apply sm:col-span-2;
+  }
+
+  .form-field span {
+    @apply text-sm font-medium text-[#202750];
+  }
+
+  .form-field input,
+  .form-field textarea {
+    @apply w-full rounded-lg border border-[#dfe2ee] bg-white px-3.5 py-3 text-sm text-[#202750] outline-none transition-colors placeholder:text-[#9a9fb5] focus:border-[#7b83bb] focus:ring-2 focus:ring-[#e9ebfa];
+  }
+
+  .form-field textarea {
+    @apply resize-y;
+  }
+
+  .application-actions {
+    @apply mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end;
+  }
+
+  .secondary-button {
+    @apply h-12 cursor-pointer rounded-lg border border-[#dfe2ee] bg-white px-5 text-sm font-semibold text-[#202750] transition-colors hover:bg-[#f7f8fc] focus:outline-none focus:ring-2 focus:ring-[#8b92cf] focus:ring-offset-2;
+  }
+
+  .application-actions .apply-button {
+    @apply w-full sm:w-auto;
+  }
+
+  .application-success {
+    @apply flex max-h-[75vh] flex-col items-center justify-center overflow-y-auto px-6 py-12 text-center;
+  }
+
+  .success-icon {
+    @apply mb-5 flex size-16 items-center justify-center rounded-full bg-[#e7f8f0] text-[#23845a];
+  }
+
+  .application-success > p:not(.modal-eyebrow) {
+    @apply mt-3 max-w-md text-sm leading-6 text-[#626987];
+  }
+
+  .application-success .apply-button {
+    @apply mt-7 w-auto min-w-32;
+  }
+
+  @media (max-width: 639px) {
+    .department-card {
+      @apply min-h-48 p-6;
+    }
+
+    .department-icon {
+      @apply size-12;
+    }
+
+    .department-name {
+      @apply text-lg;
+    }
+
+    .equal-opportunity {
+      @apply mt-10 text-xs leading-5;
+    }
+  }
+}
