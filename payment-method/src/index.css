@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-payment-navy: #2d347f;
+  --color-payment-muted: #a4a9d1;
+  --color-payment-background: #dfe1f3;
+  --font-sans: "Geist", sans-serif;
+}
+
+:root {
+  font-family: "Geist", sans-serif;
+  color: var(--color-payment-navy);
+  background: var(--color-payment-background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply m-0 min-h-screen;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible {
+  @apply outline-2 outline-offset-2 outline-[#727bc5];
+}
+
+button:disabled {
+  @apply cursor-not-allowed opacity-60;
+}
+
+#root {
+  @apply min-h-screen;
+}
+
+.payment-page {
+  @apply flex min-h-screen items-center justify-center px-4 py-8;
+  background: var(--color-payment-background);
+}
+
+.payment-card {
+  @apply w-full max-w-142.5 rounded-[2.25rem] bg-white px-6 py-8 shadow-[0_20px_55px_rgba(45,52,127,0.06)];
+}
+
+.payment-card form {
+  @apply flex flex-col;
+}
+
+.payment-title {
+  @apply mb-8 text-[1.35rem] leading-tight font-bold tracking-tight;
+  color: var(--color-payment-navy);
+}
+
+.payment-options {
+  @apply flex flex-col gap-7;
+}
+
+.payment-option {
+  @apply grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-3;
+}
+
+.payment-option-content {
+  @apply min-w-0;
+}
+
+.payment-radio {
+  @apply mt-0.5 flex size-[1.875rem] shrink-0 items-center justify-center rounded-full border border-[#414ca4] bg-white transition-colors;
+}
+
+.payment-radio.is-selected {
+  @apply border-2;
+}
+
+.radio-dot {
+  @apply size-3 rounded-full;
+  background: var(--color-payment-navy);
+}
+
+.payment-option-title {
+  @apply inline-flex min-h-7 items-center text-left text-[0.95rem] leading-5 font-bold;
+  color: var(--color-payment-navy);
+}
+
+.payment-option-title:focus-visible {
+  @apply rounded-sm;
+}
+
+.payment-description {
+  @apply mt-2 text-sm leading-5;
+  color: var(--color-payment-navy);
+}
+
+.card-fields {
+  @apply mt-3;
+}
+
+.field-row {
+  @apply flex min-h-14 min-w-0 items-center gap-3 border border-[#b2b7db] bg-white px-3.5 transition-colors;
+}
+
+.field-row:focus-within {
+  @apply relative z-10 border-[#414ca4] ring-1 ring-[#414ca4];
+}
+
+.card-fields > .field-row {
+  @apply rounded-t-sm;
+}
+
+.field-row input {
+  @apply min-w-0 flex-1 border-0 bg-transparent text-sm text-[#2d347f] outline-none placeholder:text-[#343a83];
+}
+
+.field-icon {
+  @apply size-6 shrink-0;
+  color: var(--color-payment-navy);
+  stroke-width: 2.2;
+}
+
+.split-fields {
+  @apply grid grid-cols-2;
+}
+
+.split-fields .field-row {
+  @apply -mt-px min-w-0;
+}
+
+.split-fields .field-row:first-child {
+  @apply rounded-bl-sm;
+}
+
+.split-fields .field-row:last-child {
+  @apply -ml-px rounded-br-sm;
+}
+
+.field-error {
+  @apply mt-1.5 text-xs leading-4 text-red-600;
+}
+
+.split-errors {
+  @apply grid grid-cols-2 gap-2 text-xs leading-4 text-red-600;
+}
+
+.split-errors span:empty {
+  @apply hidden;
+}
+
+.remember-option {
+  @apply mt-5 inline-flex w-fit cursor-pointer items-center gap-2 text-sm leading-5;
+  color: var(--color-payment-navy);
+}
+
+.remember-option input {
+  @apply sr-only;
+}
+
+.custom-checkbox {
+  @apply flex size-7 shrink-0 items-center justify-center rounded-sm border border-[#a6acd4] bg-white transition-colors;
+}
+
+.remember-option input:checked + .custom-checkbox {
+  @apply border-[#2d347f] bg-[#2d347f] text-white;
+}
+
+.remember-option input:focus-visible + .custom-checkbox {
+  @apply outline-2 outline-offset-2 outline-[#727bc5];
+}
+
+.later-option {
+  @apply grid w-full grid-cols-[2.875rem_minmax(0,1fr)] items-start gap-3 rounded-md text-left;
+}
+
+.later-radio {
+  @apply flex size-[2.875rem] shrink-0 items-center justify-center rounded-full border border-[#414ca4] bg-white transition-all;
+}
+
+.later-radio.is-selected {
+  @apply border-[0.5rem];
+  border-color: var(--color-payment-navy);
+}
+
+.later-radio-inner {
+  @apply size-full rounded-full bg-white;
+}
+
+.later-content {
+  @apply flex min-w-0 flex-col items-start pt-2;
+}
+
+.later-content .payment-option-title {
+  @apply leading-5;
+}
+
+.later-content .payment-description {
+  @apply mt-3;
+}
+
+.continue-button {
+  @apply mt-11 flex min-h-16 w-full items-center justify-center gap-2 rounded-sm px-4 py-4 text-sm font-medium text-white transition-colors;
+  background: var(--color-payment-navy);
+}
+
+.continue-button:hover {
+  background: #222963;
+}
+
+.continue-button:active {
+  @apply scale-[0.99];
+}
+
+.secure-note {
+  @apply mt-4 flex items-center justify-center gap-1.5 text-xs text-[#7278a8];
+}
+
+.success-panel {
+  @apply flex flex-col items-center text-center;
+}
+
+.success-icon {
+  @apply mb-5 flex size-16 items-center justify-center rounded-full bg-[#eef0ff];
+  color: var(--color-payment-navy);
+}
+
+.success-panel .payment-title {
+  @apply mb-3;
+}
+
+.success-description {
+  @apply max-w-75 text-sm leading-6 text-[#555b91];
+}
+
+.success-summary {
+  @apply mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-[#f5f6ff] px-4 py-4 text-sm;
+}
+
+.success-panel .continue-button {
+  @apply mt-8;
+}
+
+@media (min-width: 480px) {
+  .payment-card {
+    @apply px-9 py-10;
+  }
+}
+
+@media (min-width: 640px) {
+  .payment-page {
+    @apply px-6 py-10;
+  }
+
+  .payment-card {
+    @apply rounded-[3.25rem] px-[4.375rem] py-[4.375rem];
+  }
+
+  .payment-title {
+    @apply mb-10;
+  }
+
+  .payment-options {
+    @apply gap-8;
+  }
+
+  .continue-button {
+    @apply mt-11 min-h-[5.875rem];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
