@@ -17,8 +17,10 @@ The designs in this repository all come from [uidesigndaily.com](https://uidesig
 | Photo Collections List | [https://www.youtube.com/watch?v=P1XuglmZ6kw](https://www.youtube.com/watch?v=P1XuglmZ6kw) | React, Vite, TailwindCSS, JavaScript |
 | Contraction Timer | [https://www.youtube.com/watch?v=sfQjnVi2Xj4](https://www.youtube.com/watch?v=sfQjnVi2Xj4) | React, Vite, TailwindCSS, JavaScript |
 | Cookie Preferences Modal | [https://www.youtube.com/watch?v=XWdQfuVIEK0](https://www.youtube.com/watch?v=XWdQfuVIEK0) | React, Vite, TailwindCSS, JavaScript |
-| Date Picker | https://www.youtube.com/watch?v=Gc8PcEf9pkw | React, Vite, TailwindCSS, JavaScript |
-| Details Card | https://www.youtube.com/watch?v=LI_Trs0fXjM | React, Vite, TailwindCSS, TypeScript |
-| Login Form with the DummyJSON API | https://www.youtube.com/watch?v=pFNZjoWcQhA | React, Vite, TailwindCSS, JavaScript |
+| Date Picker | [https://www.youtube.com/watch?v=Gc8PcEf9pkw](https://www.youtube.com/watch?v=Gc8PcEf9pkw) | React, Vite, TailwindCSS, JavaScript |
+| Details Card | [https://www.youtube.com/watch?v=LI_Trs0fXjM](https://www.youtube.com/watch?v=LI_Trs0fXjM) | React, Vite, TailwindCSS, TypeScript |
+| Login Form with the DummyJSON API | [https://www.youtube.com/watch?v=pFNZjoWcQhA](https://www.youtube.com/watch?v=pFNZjoWcQhA) | React, Vite, TailwindCSS, JavaScript |
+| Event Attendance | [https://www.youtube.com/watch?v=ozTfYWZFcR4](https://www.youtube.com/watch?v=ozTfYWZFcR4) | React, Vite, TailwindCSS, TypeScript |
+| Job Filtering Card | [https://www.youtube.com/watch?v=IeCdq6wQ3kM](https://www.youtube.com/watch?v=IeCdq6wQ3kM) | React, Vite, TailwindCSS, TypeScript |
 
 Here is my channel: [TsbSankara](https://youtube.com/tsbsankara)
