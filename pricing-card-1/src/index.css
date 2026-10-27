@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", sans-serif;
+  --color-navy: #0d1035;
+  --color-offer-blue: #343dff;
+  --color-page: #e9ebf9;
+  --color-card-border: #e8eafb;
+}
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply min-w-80 scroll-smooth;
+  }
+
+  body {
+    @apply m-0 min-h-screen bg-page font-sans text-navy antialiased;
+    font-size: 16px;
+  }
+
+  button {
+    @apply cursor-pointer font-sans;
+  }
+
+  button:focus-visible {
+    @apply outline-2 outline-offset-4 outline-offer-blue;
+  }
+
+  ::selection {
+    @apply bg-indigo-200 text-navy;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply flex min-h-screen items-center justify-center;
+    @apply px-4 py-8 sm:px-6;
+  }
+
+  .offer-card {
+    @apply w-full max-w-136 rounded-[1.75rem] bg-white;
+    @apply px-6 pb-12 pt-10 sm:px-14 sm:pb-14 sm:pt-12;
+    @apply shadow-[0_24px_42px_-24px_rgba(13,16,53,0.22)];
+  }
+
+  .offer-header {
+    @apply text-center;
+  }
+
+  .offer-header h1 {
+    @apply m-0 text-2xl leading-tight font-extrabold tracking-tight;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  .offer-header p {
+    @apply mx-auto mt-2 max-w-80 text-base leading-6 font-semibold;
+  }
+
+  .offer-list {
+    @apply mt-9 flex flex-col gap-3.5;
+  }
+
+  .offer-option {
+    @apply relative flex min-h-40 w-full items-center gap-4;
+    @apply rounded-md border-[3px] border-card-border;
+    @apply bg-white px-4 py-6 text-left sm:px-7;
+    @apply transition-colors duration-150;
+  }
+
+  .offer-option:hover {
+    @apply border-indigo-200;
+  }
+
+  .offer-option-selected {
+    @apply border-offer-blue;
+  }
+
+  .offer-option-selected:hover {
+    @apply border-offer-blue;
+  }
+
+  .radio-indicator {
+    @apply flex size-9 shrink-0 items-center justify-center;
+    @apply rounded-full border-[2.5px] border-navy;
+    @apply text-white transition-colors;
+  }
+
+  .radio-indicator-selected {
+    @apply border-navy bg-navy;
+  }
+
+  .offer-copy {
+    @apply flex min-w-0 flex-1 flex-col items-start;
+  }
+
+  .offer-badge {
+    @apply mb-1.5 -mt-1 rounded-full bg-offer-blue;
+    @apply px-3.5 py-1 text-base leading-6 font-semibold text-white;
+  }
+
+  .offer-label {
+    @apply text-sm leading-5 font-semibold;
+  }
+
+  .offer-title {
+    @apply mt-1.5 text-xl leading-7 font-semibold tracking-tight;
+  }
+
+  .offer-description {
+    @apply mt-1 text-base leading-6 font-medium;
+  }
+
+  .checkout-actions {
+    @apply mx-auto mt-9 flex w-full max-w-77 flex-col gap-3.5;
+  }
+
+  .continue-button {
+    @apply flex min-h-16 w-full items-center justify-center;
+    @apply rounded-full bg-navy px-5 py-4;
+    @apply text-base font-semibold text-white;
+    @apply transition-colors duration-150;
+    @apply hover:bg-[#20244f] active:bg-[#070923];
+  }
+
+  .paypal-button {
+    @apply flex gap-2 items-center justify-center border h-16 rounded-full hover:opacity-75 transition;
+  }
+
+  .paypal-button svg {
+    @apply w-5;
+  }
+
+  .more-offers-link {
+    @apply mx-auto mt-9 block text-center text-base font-semibold;
+    @apply text-offer-blue underline underline-offset-2;
+    @apply hover:text-indigo-800;
+  }
+
+  .dialog-backdrop {
+    @apply fixed inset-0 z-50 flex items-center justify-center;
+    @apply overflow-y-auto bg-navy/45 p-4;
+    @apply backdrop-blur-sm;
+  }
+
+  .checkout-dialog {
+    @apply relative w-full max-w-md rounded-3xl bg-white p-6;
+    @apply shadow-2xl sm:p-8;
+    animation: dialog-appear 180ms ease-out;
+  }
+
+  .dialog-close {
+    @apply absolute right-4 top-4 flex size-9 items-center justify-center;
+    @apply rounded-full text-slate-500 hover:bg-slate-100;
+  }
+
+  .dialog-back {
+    @apply mb-6 flex items-center gap-1 text-sm font-semibold;
+    @apply text-slate-600 hover:text-navy;
+  }
+
+  .checkout-dialog h2 {
+    @apply text-xl font-bold tracking-tight;
+  }
+
+  .dialog-description {
+    @apply mt-2 text-sm leading-6 text-slate-600;
+  }
+
+  .checkout-summary {
+    @apply mt-5 flex flex-col gap-2 rounded-xl;
+    @apply border border-card-border bg-slate-50 p-4;
+    @apply text-sm leading-6;
+  }
+
+  .checkout-summary strong {
+    @apply font-semibold;
+  }
+
+  .summary-method {
+    @apply mt-2 border-t border-slate-200 pt-3 text-slate-600;
+  }
+
+  .dialog-primary {
+    @apply mt-6;
+  }
+
+  .dialog-success-icon {
+    @apply mb-4 flex size-12 items-center justify-center;
+    @apply rounded-full bg-emerald-100 text-emerald-700;
+  }
+
+  .demo-disclaimer {
+    @apply mt-3 text-center text-xs text-slate-500;
+  }
+}
+
+@keyframes dialog-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 400px) {
+  .offer-card {
+    @apply rounded-3xl px-5 pb-9 pt-8;
+  }
+
+  .offer-header h1 {
+    @apply text-xl;
+  }
+
+  .offer-header p {
+    @apply text-sm leading-6;
+  }
+
+  .offer-option {
+    @apply gap-3 px-3 py-5;
+  }
+
+  .radio-indicator {
+    @apply size-8;
+  }
+
+  .offer-title {
+    @apply text-lg leading-6;
+  }
+
+  .offer-description {
+    @apply text-sm leading-5;
+  }
+
+  .offer-badge {
+    @apply text-sm;
+  }
+
+  .checkout-actions {
+    @apply mt-7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

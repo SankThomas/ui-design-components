@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+:root {
+  font-family: "Manrope", sans-serif;
+  color: #171b49;
+  background: #f5f7ff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply m-0 min-h-screen;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  @apply outline-2 outline-offset-4 outline-indigo-500;
+}
+
+button:disabled {
+  @apply cursor-not-allowed opacity-60;
+}
+
+#root {
+  @apply min-h-screen;
+}
+
+.pricing-page {
+  @apply relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-12 sm:px-8;
+  background:
+    radial-gradient(
+      ellipse at 43% 21%,
+      rgb(182 255 250 / 65%),
+      transparent 24%
+    ),
+    radial-gradient(
+      ellipse at 75% 34%,
+      rgb(255 221 183 / 65%),
+      transparent 23%
+    ),
+    radial-gradient(
+      ellipse at 28% 70%,
+      rgb(239 191 255 / 70%),
+      transparent 34%
+    ),
+    #f5f7ff;
+}
+
+.pricing-frame {
+  @apply relative z-10 w-full max-w-240 rounded-3xl bg-white p-2.5 sm:p-4;
+}
+
+.pricing-panel {
+  @apply rounded-xl px-5 py-8 sm:px-8 sm:py-10 lg:px-11 lg:py-12;
+  background:
+    radial-gradient(
+      ellipse at 23% 100%,
+      rgb(250 236 255 / 75%),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 85% 15%,
+      rgb(255 243 229 / 75%),
+      transparent 45%
+    ),
+    #fcfdff;
+}
+
+.pricing-grid {
+  @apply grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6 lg:gap-10;
+}
+
+.plan-card {
+  @apply flex min-w-0 flex-col items-start;
+}
+
+.plan-name {
+  @apply text-xl font-extrabold tracking-tight sm:text-2xl;
+  color: #171b49;
+}
+
+.plan-price {
+  @apply mt-6 flex items-baseline gap-1;
+  color: #171b49;
+}
+
+.plan-currency {
+  @apply text-2xl font-extrabold;
+}
+
+.plan-amount {
+  @apply text-5xl leading-none font-extrabold tracking-tight;
+}
+
+.plan-billing {
+  @apply mt-2 text-sm font-medium;
+  color: #171b49;
+}
+
+.plan-description {
+  @apply mt-8 max-w-64 text-base leading-relaxed font-medium;
+  color: #171b49;
+}
+
+.plan-button {
+  @apply mt-8 inline-flex min-h-14 items-center justify-center rounded-lg px-4 py-3 text-base font-bold text-slate-950 transition duration-200 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0;
+}
+
+.plan-button-free {
+  @apply bg-fuchsia-300;
+}
+
+.plan-button-standard {
+  @apply bg-cyan-200;
+}
+
+.plan-button-premium {
+  @apply bg-orange-200;
+}
+
+.plan-button-free:hover {
+  @apply bg-fuchsia-400;
+}
+
+.plan-button-standard:hover {
+  @apply bg-cyan-300;
+}
+
+.plan-button-premium:hover {
+  @apply bg-orange-300;
+}
+
+.plan-button:disabled {
+  @apply translate-y-0 shadow-none;
+}
+
+.selection-message {
+  @apply mt-6 rounded-lg border border-indigo-100 bg-white/80 p-4 text-sm leading-relaxed;
+}
+
+.modal-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-slate-950/40 px-4 py-8 backdrop-blur-sm;
+}
+
+.modal-card {
+  @apply w-full max-w-md rounded-2xl border border-white/80 bg-white p-6 shadow-2xl sm:p-8;
+}
+
+.modal-close {
+  @apply flex size-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-900;
+}
+
+.modal-secondary {
+  @apply inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-200 px-4 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-50;
+}
+
+.modal-primary {
+  @apply inline-flex min-h-11 items-center justify-center rounded-lg px-4 py-2 text-sm font-bold text-slate-950 transition hover:brightness-95;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

@@ -1,0 +1,444 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+:root {
+  font-family: "Manrope", sans-serif;
+  color: #191847;
+  background: #edf1f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply m-0 min-h-screen;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  @apply outline-2 outline-offset-4 outline-blue-500;
+}
+
+#root {
+  @apply min-h-screen;
+}
+
+.product-page {
+  @apply relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-20 sm:px-8;
+  background:
+    radial-gradient(ellipse at 12% 15%, rgb(211 226 255 / 65%), transparent 34%),
+    radial-gradient(ellipse at 90% 85%, rgb(224 215 255 / 45%), transparent 32%),
+    #edf1f8;
+}
+
+.product-glow {
+  @apply pointer-events-none absolute size-64 rounded-full blur-3xl;
+  background: rgb(147 177 255 / 14%);
+}
+
+.product-glow-one {
+  @apply -top-32 right-0;
+}
+
+.product-glow-two {
+  @apply bottom-0 left-0;
+}
+
+.cart-counter {
+  @apply fixed right-4 top-4 z-20 inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/90 px-4 py-2.5 text-sm font-bold text-[#191847] shadow-sm backdrop-blur-md transition hover:shadow-md sm:right-8 sm:top-8;
+}
+
+.cart-counter-icon {
+  @apply relative flex size-8 items-center justify-center rounded-full bg-blue-50 text-blue-600;
+}
+
+.cart-counter-icon svg {
+  @apply size-4;
+}
+
+.cart-count {
+  @apply absolute -right-1 -top-1 flex size-4 items-center justify-center rounded-full bg-blue-600 text-[10px] font-extrabold text-white;
+}
+
+.product-card {
+  @apply relative z-10 grid w-full max-w-210 grid-cols-1 overflow-hidden rounded-2xl border border-white/80 bg-white shadow-[0_24px_70px_-32px_rgba(31,45,83,0.28)] md:grid-cols-[0.9fr_1.1fr];
+}
+
+.product-visual {
+  @apply relative flex min-h-64 items-center justify-center overflow-hidden p-8 sm:min-h-80 md:min-h-120 md:p-10;
+  background:
+    radial-gradient(ellipse at 50% 45%, white 0%, transparent 57%),
+    linear-gradient(145deg, #f8f5ff 0%, #f0f3ff 52%, #fceef3 100%);
+}
+
+.product-image-orbit {
+  @apply pointer-events-none absolute size-52 rounded-full border border-white/80 sm:size-64;
+}
+
+.product-image-orbit-inner {
+  @apply pointer-events-none absolute size-40 rounded-full border border-white/70 sm:size-48;
+}
+
+.product-image {
+  @apply relative z-10 aspect-square w-full max-w-56 object-contain drop-shadow-[0_20px_18px_rgba(41,38,66,0.15)] transition duration-500 hover:scale-105 sm:max-w-64;
+}
+
+.product-image-tag {
+  @apply absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/85 px-3 py-2 text-xs font-bold text-slate-700 shadow-sm backdrop-blur sm:bottom-7 sm:left-7;
+}
+
+.product-image-tag-dot {
+  @apply size-2 rounded-full bg-emerald-500;
+}
+
+.product-details {
+  @apply flex min-w-0 flex-col items-start p-6 sm:p-9 lg:p-10;
+}
+
+.product-topline {
+  @apply flex w-full flex-wrap items-center justify-between gap-3;
+}
+
+.shipping-badge {
+  @apply inline-flex items-center gap-1.5 rounded-full bg-[#191847] px-3 py-1.5 text-xs font-bold text-white;
+}
+
+.product-category {
+  @apply text-xs font-bold uppercase tracking-[0.14em] text-slate-400;
+}
+
+.product-title {
+  @apply mt-5 text-2xl leading-snug font-extrabold tracking-tight sm:text-[27px];
+  color: #191847;
+}
+
+.product-subtitle {
+  @apply mt-2 text-sm leading-relaxed text-slate-500;
+}
+
+.product-rating {
+  @apply mt-4 flex flex-wrap items-center gap-2 text-xs;
+}
+
+.rating-stars {
+  @apply font-extrabold tracking-wide text-amber-500;
+}
+
+.rating-copy {
+  @apply font-semibold text-slate-500;
+}
+
+.product-divider {
+  @apply my-6 h-px w-full bg-slate-100;
+}
+
+.product-price-row {
+  @apply flex w-full flex-wrap items-end justify-between gap-3;
+}
+
+.product-old-price {
+  @apply text-sm font-semibold text-slate-400 line-through;
+}
+
+.product-price {
+  @apply mt-1 text-4xl leading-none font-extrabold tracking-tight sm:text-[42px];
+  color: #191847;
+}
+
+.product-price-note {
+  @apply mt-2 text-xs font-medium text-slate-500;
+}
+
+.discount-badge {
+  @apply mb-1 inline-flex rounded-md bg-rose-50 px-2.5 py-1.5 text-xs font-extrabold text-rose-600;
+}
+
+.product-offer {
+  @apply mt-5 flex items-start gap-2 rounded-lg border border-amber-100 bg-amber-50/70 p-3 text-xs leading-relaxed text-amber-900;
+}
+
+.product-offer svg {
+  @apply mt-0.5 size-4 shrink-0;
+}
+
+.add-cart-button {
+  @apply mt-6 flex min-h-13 w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-3 text-sm font-bold text-white shadow-[0_4px_0_#2149d8] transition hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-[0_6px_0_#2149d8] active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+.add-cart-button svg {
+  @apply size-4;
+}
+
+.stock-status {
+  @apply mt-5 flex items-center gap-2 text-xs font-semibold text-slate-600;
+}
+
+.stock-dot {
+  @apply size-2.5 shrink-0 rounded-full bg-emerald-500;
+}
+
+.product-actions {
+  @apply mt-5 grid w-full grid-cols-1 gap-3 sm:grid-cols-2;
+}
+
+.product-secondary-button {
+  @apply flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-3 text-sm font-bold text-[#191847] transition hover:border-blue-200 hover:bg-blue-50/60 active:scale-[0.98];
+}
+
+.product-secondary-button svg {
+  @apply size-5 shrink-0;
+}
+
+.product-secondary-button-active {
+  @apply border-rose-200 bg-rose-50 text-rose-600 hover:border-rose-300 hover:bg-rose-50;
+}
+
+.product-feedback {
+  @apply mt-4 w-full rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm leading-relaxed text-emerald-800;
+}
+
+.product-feedback-content {
+  @apply flex items-start gap-2;
+}
+
+.product-feedback-content svg {
+  @apply mt-0.5 size-4 shrink-0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+.quantity-picker {
+  @apply mt-5 flex w-full items-center justify-between gap-4;
+}
+
+.quantity-label {
+  @apply text-sm font-bold text-slate-700;
+}
+
+.quantity-control {
+  @apply inline-flex h-10 items-center overflow-hidden rounded-lg border border-slate-200 bg-white;
+}
+
+.quantity-control button {
+  @apply flex size-10 items-center justify-center text-slate-600 transition hover:bg-slate-100 hover:text-blue-600 disabled:cursor-not-allowed disabled:opacity-35;
+}
+
+.quantity-control button svg {
+  @apply size-4;
+}
+
+.quantity-control output {
+  @apply min-w-9 text-center text-sm font-bold text-slate-900;
+}
+
+.product-feedback-success {
+  @apply border-emerald-200 bg-emerald-50 text-emerald-800;
+}
+
+.product-feedback-error {
+  @apply border-rose-200 bg-rose-50 text-rose-800;
+}
+
+.product-feedback-info {
+  @apply border-blue-200 bg-blue-50 text-blue-800;
+}
+
+.drawer-overlay {
+  @apply fixed inset-0 z-40 flex justify-end bg-slate-950/40 backdrop-blur-[2px];
+  animation: overlay-enter 180ms ease-out;
+}
+
+.cart-drawer {
+  @apply flex h-full w-full max-w-lg flex-col overflow-y-auto bg-white p-5 shadow-2xl sm:p-7;
+  animation: drawer-enter 220ms ease-out;
+}
+
+.cart-drawer-header {
+  @apply flex items-center justify-between border-b border-slate-100 pb-5;
+}
+
+.cart-drawer-header h2 {
+  @apply text-xl font-extrabold text-[#191847];
+}
+
+.cart-drawer-header p {
+  @apply mt-1 text-sm text-slate-500;
+}
+
+.drawer-close {
+  @apply flex size-10 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-900;
+}
+
+.drawer-close svg {
+  @apply size-5;
+}
+
+.cart-line-item {
+  @apply grid grid-cols-[76px_minmax(0,1fr)] gap-4 border-b border-slate-100 py-6 sm:grid-cols-[88px_minmax(0,1fr)_auto];
+}
+
+.cart-product-image {
+  @apply flex size-19 items-center justify-center rounded-xl bg-[#f2f2fc] p-2;
+}
+
+.cart-product-image img {
+  @apply size-full object-contain;
+}
+
+.cart-product-info {
+  @apply min-w-0;
+}
+
+.cart-product-info h3 {
+  @apply text-sm leading-relaxed font-bold text-[#191847];
+}
+
+.cart-unit-price {
+  @apply mt-1 text-xs text-slate-500;
+}
+
+.cart-quantity-control {
+  @apply mt-3 h-9 w-fit;
+}
+
+.cart-quantity-control button {
+  @apply size-8;
+}
+
+.cart-quantity-control output {
+  @apply min-w-7;
+}
+
+.cart-item-end {
+  @apply col-start-2 flex items-center justify-between gap-3 sm:col-start-3 sm:flex-col sm:items-end sm:justify-start;
+}
+
+.cart-item-end strong {
+  @apply text-sm font-extrabold text-[#191847];
+}
+
+.remove-cart-item {
+  @apply flex size-9 items-center justify-center rounded-lg text-slate-400 transition hover:bg-rose-50 hover:text-rose-600;
+}
+
+.remove-cart-item svg {
+  @apply size-4;
+}
+
+.cart-summary {
+  @apply mt-auto pt-6;
+}
+
+.cart-summary > div {
+  @apply flex items-center justify-between gap-4 py-2 text-sm;
+}
+
+.cart-summary > div > span {
+  @apply text-slate-500;
+}
+
+.cart-summary > div > strong {
+  @apply font-bold text-slate-900;
+}
+
+.cart-summary .free-shipping-value {
+  @apply text-emerald-600;
+}
+
+.cart-summary .savings-value {
+  @apply text-emerald-700;
+}
+
+.cart-summary .cart-total {
+  @apply mt-3 border-t border-slate-200 pt-5 text-base;
+}
+
+.cart-summary .cart-total > span {
+  @apply font-bold text-[#191847];
+}
+
+.cart-summary .cart-total > strong {
+  @apply text-xl font-extrabold text-[#191847];
+}
+
+.cart-disclaimer {
+  @apply mt-3 text-xs leading-relaxed text-slate-500;
+}
+
+.cart-summary .add-cart-button {
+  @apply mt-5;
+}
+
+.checkout-message {
+  @apply mt-3 rounded-lg border border-blue-100 bg-blue-50 p-3 text-sm leading-relaxed text-blue-800;
+}
+
+.empty-cart {
+  @apply flex flex-1 flex-col items-center justify-center py-12 text-center;
+}
+
+.empty-cart-icon {
+  @apply flex size-16 items-center justify-center rounded-full bg-blue-50 text-blue-600;
+}
+
+.empty-cart-icon svg {
+  @apply size-7;
+}
+
+.empty-cart h3 {
+  @apply mt-5 text-lg font-extrabold text-[#191847];
+}
+
+.empty-cart p {
+  @apply mt-2 text-sm text-slate-500;
+}
+
+.empty-cart .add-cart-button {
+  @apply mt-6 max-w-xs;
+}
+
+@keyframes overlay-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drawer-enter {
+  from {
+    transform: translateX(24px);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer-overlay,
+  .cart-drawer {
+    animation: none;
+  }
+}

@@ -1,0 +1,685 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+:root {
+  font-family: "Manrope", sans-serif;
+  color: #171431;
+  background: #edf0fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply m-0 min-h-screen;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  @apply outline-2 outline-offset-2 outline-indigo-500;
+}
+
+button:disabled {
+  @apply cursor-not-allowed opacity-50;
+}
+
+#root {
+  @apply min-h-screen;
+}
+
+.profile-page {
+  @apply relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-12;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 14% 16%, #f9f9ff 0%, transparent 34%),
+    radial-gradient(ellipse at 86% 82%, #dfe6ff 0%, transparent 36%), #edf0fc;
+}
+
+.ambient {
+  @apply pointer-events-none absolute rounded-full;
+  z-index: -1;
+  filter: blur(70px);
+  opacity: 0.7;
+}
+
+.ambient-one {
+  width: 270px;
+  height: 270px;
+  top: 8%;
+  left: -100px;
+  background: #e4dcff;
+}
+
+.ambient-two {
+  width: 300px;
+  height: 300px;
+  right: -120px;
+  bottom: 4%;
+  background: #d4e5ff;
+}
+
+.profile-stage {
+  @apply relative w-full max-w-112;
+}
+
+.profile-card {
+  @apply relative flex min-h-125 flex-col items-center rounded-[26px] border border-white/80 bg-white px-6 pb-7 pt-13 text-center sm:px-8;
+  box-shadow:
+    0 32px 80px rgb(44 49 111 / 10%),
+    0 2px 8px rgb(44 49 111 / 3%);
+}
+
+.card-topline {
+  @apply absolute left-6 right-6 top-5 flex items-center justify-between sm:left-8 sm:right-8;
+}
+
+.card-brand {
+  @apply flex items-center gap-2 text-xs font-extrabold tracking-tight text-slate-500;
+}
+
+.brand-mark {
+  @apply flex size-7 items-center justify-center rounded-lg bg-[#171431] text-base font-extrabold text-white;
+}
+
+.profile-badge {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-slate-100 bg-slate-50 px-2.5 py-1 text-[9px] font-extrabold tracking-[0.13em] text-slate-500;
+}
+
+.profile-badge-dot {
+  @apply size-1.5 rounded-full bg-emerald-400;
+}
+
+.avatar-frame {
+  @apply mb-5 flex size-29 items-center justify-center rounded-full border-[7px] border-[#eef0ff] bg-white p-0.5;
+  box-shadow: 0 5px 20px rgb(31 35 83 / 5%);
+}
+
+.avatar-image {
+  @apply size-full rounded-full object-cover;
+}
+
+.avatar-fallback {
+  @apply flex size-full items-center justify-center rounded-full bg-indigo-50 text-indigo-400;
+}
+
+.avatar-fallback svg {
+  @apply size-9;
+}
+
+.profile-identity {
+  @apply flex flex-col items-center;
+}
+
+.profile-name {
+  @apply text-[25px] leading-tight font-extrabold tracking-[-0.045em] text-[#171431];
+  overflow-wrap: anywhere;
+}
+
+.profile-role {
+  @apply mt-2 text-sm font-semibold text-[#77738f];
+}
+
+.current-status {
+  @apply mt-3 inline-flex items-center gap-2 rounded-full bg-[#f5f6ff] px-3 py-1.5 text-xs font-semibold text-[#565174];
+}
+
+.status-dot {
+  @apply size-2.5 shrink-0 rounded-full;
+}
+
+.status-available {
+  @apply bg-emerald-400;
+}
+
+.status-working {
+  @apply bg-blue-400;
+}
+
+.status-break {
+  @apply bg-amber-400;
+}
+
+.status-away {
+  @apply bg-slate-400;
+}
+
+.status-none {
+  @apply bg-slate-300;
+}
+
+.profile-divider {
+  @apply my-7 h-px w-full max-w-80 bg-slate-100;
+}
+
+.profile-actions {
+  @apply grid w-full max-w-95 grid-cols-3 gap-2.5;
+}
+
+.profile-action {
+  @apply flex min-w-0 flex-col items-center justify-center gap-2 rounded-2xl border border-[#e1e3f8] bg-white px-1.5 py-3 text-xs font-bold text-[#292644] transition duration-200 hover:-translate-y-0.5 hover:border-[#c9c9f5] hover:bg-[#f8f8ff] active:translate-y-0;
+}
+
+.profile-action > svg {
+  @apply size-7;
+  stroke-width: 1.65;
+}
+
+.profile-action-active {
+  @apply border-[#d4d0fa] bg-[#f5f3ff] text-[#5144a1];
+}
+
+.card-caption {
+  @apply mt-6 text-[11px] font-medium tracking-wide text-slate-400;
+}
+
+.menu-anchor {
+  @apply absolute right-0 top-0 z-20;
+}
+
+.menu-anchor-trigger {
+  @apply absolute right-5 top-5 hidden size-9 items-center justify-center rounded-xl border border-slate-100 bg-white text-[#171431] transition hover:bg-slate-50;
+}
+
+.menu-anchor-trigger svg {
+  @apply size-5;
+}
+
+.profile-menu {
+  @apply absolute right-0 top-0 w-76 max-w-[calc(100vw-32px)] rounded-[23px] border border-white/10 bg-[#15102f] p-3.5 text-white;
+  max-height: min(520px, calc(50dvh - 32px));
+  overflow-y: auto;
+  box-shadow:
+    0 28px 65px rgb(18 13 48 / 25%),
+    0 3px 12px rgb(18 13 48 / 8%);
+  animation: menu-enter 180ms ease-out;
+}
+
+.menu-heading {
+  @apply flex items-center justify-between px-3 pb-3 pt-2;
+}
+
+.menu-eyebrow {
+  @apply text-[9px] font-extrabold tracking-[0.18em] text-white/40;
+}
+
+.menu-close {
+  @apply flex size-7 items-center justify-center rounded-lg text-white/55 transition hover:bg-white/10 hover:text-white;
+}
+
+.menu-close svg {
+  @apply size-4;
+}
+
+.menu-items {
+  @apply flex flex-col gap-1;
+}
+
+.menu-item {
+  @apply flex min-h-11 w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition duration-150 hover:bg-white/[0.07] focus-visible:bg-white/10;
+}
+
+.menu-icon {
+  @apply flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/[0.06] text-white/70;
+}
+
+.menu-icon svg {
+  @apply size-4;
+  stroke-width: 1.7;
+}
+
+.menu-item-copy {
+  @apply flex min-w-0 flex-1 flex-col gap-1;
+}
+
+.menu-item-label {
+  @apply text-[13px] leading-snug font-semibold text-white/90;
+}
+
+.menu-item-description {
+  @apply text-[10px] leading-relaxed text-white/45;
+}
+
+.menu-arrow {
+  @apply size-3.5 shrink-0 text-white/25 transition;
+}
+
+.menu-item:hover .menu-arrow {
+  @apply translate-x-0.5 text-white/70;
+}
+
+.menu-item-highlight {
+  @apply bg-[#302950] hover:bg-[#3a3262];
+}
+
+.menu-item-highlight .menu-icon {
+  @apply bg-white/[0.08] text-violet-200;
+}
+
+.menu-item-highlight .menu-item-label {
+  @apply text-white;
+}
+
+.menu-footer {
+  @apply mt-3 flex items-center gap-2 border-t border-white/10 px-3 pb-1 pt-4 text-[10px] font-semibold text-white/40;
+}
+
+.menu-footer-dot {
+  @apply size-1.5 rounded-full bg-emerald-400;
+}
+
+.menu-footer-version {
+  @apply ml-auto font-medium text-white/25;
+}
+
+.stage-footer {
+  @apply mt-6 flex items-center justify-center gap-3 text-[9px] font-extrabold tracking-[0.15em] text-[#9898b5];
+}
+
+.stage-footer-line {
+  @apply h-px w-8 bg-[#d4d7ec];
+}
+
+.dialog-backdrop {
+  @apply fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#15102f]/40 px-4 py-6 backdrop-blur-md;
+  animation: fade-in 150ms ease-out;
+}
+
+.profile-dialog {
+  @apply my-auto w-full max-w-105 overflow-hidden rounded-[23px] border border-white bg-white;
+  box-shadow: 0 35px 90px rgb(18 13 48 / 22%);
+  animation: dialog-enter 180ms ease-out;
+}
+
+.dialog-header {
+  @apply flex items-center justify-between gap-4 border-b border-slate-100 px-5 py-5 sm:px-6;
+}
+
+.dialog-kicker {
+  @apply text-[9px] font-extrabold tracking-[0.16em] text-indigo-500;
+}
+
+.dialog-header h2 {
+  @apply mt-1 text-lg font-extrabold tracking-tight text-[#171431];
+}
+
+.dialog-close {
+  @apply flex size-9 shrink-0 items-center justify-center rounded-xl text-slate-500 transition hover:bg-slate-100 hover:text-slate-900;
+}
+
+.dialog-close svg {
+  @apply size-5;
+}
+
+.dialog-content {
+  @apply flex flex-col gap-3 p-5 sm:p-6;
+}
+
+.dialog-description {
+  @apply mb-2 text-sm leading-6 text-slate-500;
+}
+
+.status-options {
+  @apply flex flex-col gap-2;
+}
+
+.status-option {
+  @apply flex min-h-12 items-center gap-3 rounded-xl border border-slate-100 px-3.5 text-left text-sm font-semibold text-slate-700 transition hover:border-indigo-100 hover:bg-slate-50;
+}
+
+.status-option-selected {
+  @apply border-indigo-200 bg-indigo-50/80 text-[#30256d];
+}
+
+.status-option > svg {
+  @apply ml-auto size-4 text-indigo-600;
+}
+
+.field-label {
+  @apply mt-1 text-xs font-extrabold text-slate-600;
+}
+
+.profile-input {
+  @apply min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3.5 text-sm text-slate-900 transition placeholder:text-slate-400 focus:border-indigo-400;
+}
+
+.dialog-primary {
+  @apply mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-[#171431] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#302858] active:scale-[0.99];
+}
+
+.form-feedback {
+  @apply flex items-start gap-2 text-xs leading-relaxed text-emerald-700;
+}
+
+.form-feedback svg {
+  @apply size-4 shrink-0;
+}
+
+.dialog-note {
+  @apply flex items-start gap-3 rounded-xl bg-[#f5f4ff] p-4 text-xs leading-relaxed text-slate-600;
+}
+
+.dialog-note svg {
+  @apply mt-0.5 size-4 shrink-0 text-indigo-500;
+}
+
+.sr-only {
+  @apply absolute size-px overflow-hidden whitespace-nowrap p-0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+}
+
+@keyframes menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(7px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dialog-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 640px) {
+  .profile-stage {
+    max-width: 480px;
+  }
+
+  .profile-card {
+    min-height: 475px;
+  }
+
+  .profile-menu {
+    top: 235px;
+    right: -268px;
+    width: 305px;
+  }
+
+  .menu-anchor-trigger {
+    display: flex;
+  }
+
+  .profile-actions {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 639px) {
+  .profile-page {
+    @apply px-4 py-10;
+  }
+
+  .profile-stage {
+    @apply max-w-105;
+  }
+
+  .profile-card {
+    @apply min-h-0 px-5 pb-7 pt-12;
+  }
+
+  .avatar-frame {
+    @apply size-26;
+  }
+
+  .profile-name {
+    @apply text-[23px];
+  }
+
+  .profile-divider {
+    @apply my-6;
+  }
+
+  .profile-actions {
+    @apply mt-0 gap-2;
+  }
+
+  .profile-action {
+    @apply min-h-20 gap-2 rounded-xl py-3 text-[11px];
+  }
+
+  .profile-action > svg {
+    @apply size-6;
+  }
+
+  .menu-anchor {
+    @apply static;
+  }
+
+  .menu-anchor-trigger {
+    display: none;
+  }
+
+  .profile-menu {
+    position: fixed;
+    z-index: 40;
+    top: auto;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    width: auto;
+    max-width: none;
+    max-height: min(65dvh, 520px);
+    border-radius: 22px;
+  }
+
+  .menu-item {
+    @apply min-h-11;
+  }
+
+  .stage-footer {
+    @apply mt-5;
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-actions {
+    @apply gap-1.5;
+  }
+
+  .profile-action {
+    @apply px-0 text-[10px];
+  }
+
+  .profile-name {
+    @apply text-xl;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.password-field {
+  @apply relative;
+}
+
+.password-field .profile-input {
+  @apply pr-12;
+}
+
+.password-toggle {
+  @apply absolute right-3 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-lg text-slate-500 transition hover:bg-slate-100 hover:text-slate-900;
+}
+
+.password-toggle svg {
+  @apply size-4;
+}
+
+.auth-feedback {
+  @apply rounded-xl bg-amber-50 p-3 text-amber-800;
+}
+
+.auth-note {
+  @apply flex items-center gap-2 text-[11px] leading-relaxed text-slate-400;
+}
+
+.auth-note svg {
+  @apply size-4 shrink-0 text-emerald-600;
+}
+
+.dialog-text-button {
+  @apply self-center px-4 py-2 text-sm font-semibold text-slate-500 transition hover:text-slate-900;
+}
+
+.faq-list {
+  @apply divide-y divide-slate-100 border-y border-slate-100;
+}
+
+.faq-item {
+  @apply py-1;
+}
+
+.faq-question {
+  @apply flex min-h-12 w-full items-center justify-between gap-4 py-3 text-left text-sm font-bold text-[#292644] transition hover:text-indigo-600;
+}
+
+.faq-indicator {
+  @apply flex size-7 shrink-0 items-center justify-center rounded-lg bg-slate-50 text-lg text-indigo-600;
+}
+
+.faq-answer {
+  @apply pb-4 pr-5 text-xs leading-6 text-slate-500;
+}
+
+.integration-list {
+  @apply flex flex-col gap-2;
+}
+
+.integration-item {
+  @apply flex items-center gap-3 rounded-xl border border-slate-100 p-3;
+}
+
+.integration-icon {
+  @apply flex size-10 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600;
+}
+
+.integration-icon svg {
+  @apply size-5;
+}
+
+.integration-copy {
+  @apply flex min-w-0 flex-1 flex-col gap-1;
+}
+
+.integration-copy strong {
+  @apply text-xs font-extrabold text-slate-800;
+}
+
+.integration-copy > span {
+  @apply text-[10px] leading-relaxed text-slate-500;
+}
+
+.integration-copy small {
+  @apply text-[10px] font-semibold text-slate-400;
+}
+
+.integration-toggle {
+  @apply flex h-6 w-11 shrink-0 items-center rounded-full bg-slate-200 p-0.5 transition;
+}
+
+.integration-toggle span {
+  @apply size-5 rounded-full bg-white shadow-sm transition-transform;
+}
+
+.integration-toggle-on {
+  @apply bg-indigo-600;
+}
+
+.integration-toggle-on span {
+  @apply translate-x-5;
+}
+
+.api-code-header {
+  @apply flex items-center justify-between gap-3 rounded-t-xl border border-slate-800 bg-[#211c3b] px-3 py-2 text-[10px] font-semibold text-white/70;
+}
+
+.copy-button {
+  @apply inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-2.5 py-1.5 text-[10px] font-bold text-white transition hover:bg-white/20;
+}
+
+.copy-button svg {
+  @apply size-3.5;
+}
+
+.api-code {
+  @apply overflow-x-auto rounded-b-xl border border-t-0 border-slate-800 bg-[#15102f] p-4 text-[11px] leading-6 text-emerald-200;
+}
+
+.api-code code {
+  @apply font-mono;
+}
+
+.resource-link {
+  @apply inline-flex items-center gap-2 self-start text-xs font-bold text-indigo-600 transition hover:text-indigo-800;
+}
+
+.resource-link svg {
+  @apply size-3.5;
+}
+
+.api-note {
+  @apply text-[11px] leading-5 text-slate-400;
+}
+
+.partnership-textarea {
+  @apply min-h-28 resize-y py-3;
+}
+
+.legal-content section {
+  @apply rounded-xl border border-slate-100 p-3.5;
+}
+
+.legal-content h3 {
+  @apply mb-1.5 text-sm font-extrabold text-[#292644];
+}
+
+.legal-content section p {
+  @apply text-xs leading-6 text-slate-500;
+}
