@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Check, Edit3 } from "lucide-react";
-import ComposeModal from "./ComposeModal";
-import MessageModal from "./MessageModal";
+import ComposeModal from "./components/ComposeModal";
+import MessageModal from "./components/MessageModal";
 
 type Message = {
   id: number;

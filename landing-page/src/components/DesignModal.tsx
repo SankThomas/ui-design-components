@@ -1,10 +1,16 @@
 import { Download, X } from "lucide-react";
-import type { Design } from "./data";
+import type { Design } from "../data";
 import DownloadPreview from "./DownloadPreview";
 import SettingsPreview from "./SettingsPreview";
 import ReportPreview from "./ReportPreview";
 
-export default function DesignModal({ design, onClose}: { design: Design; onClose: () => void }) {
+export default function DesignModal({
+  design,
+  onClose,
+}: {
+  design: Design;
+  onClose: () => void;
+}) {
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div

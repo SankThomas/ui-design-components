@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import { designs, designTypes, tools, type Design, type Tool } from "./data";
 import { ChevronDown, Menu, Search, X } from "lucide-react";
-import DesignCard from "./DesignCard";
-import DesignModal from "./DesignModal";
-import AuthModal from "./AuthModal";
+import DesignCard from "./components/DesignCard";
+import DesignModal from "./components/DesignModal";
+import AuthModal from "./components/AuthModal";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<"Latest" | "Popular">("Latest");

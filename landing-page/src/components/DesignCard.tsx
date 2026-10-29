@@ -1,10 +1,16 @@
-import type { Design } from "./data";
+import type { Design } from "../data";
 import { Code2, Eye, GitBranch, Sparkles } from "lucide-react";
 import DownloadPreview from "./DownloadPreview";
 import SettingsPreview from "./SettingsPreview";
 import ReportPreview from "./ReportPreview";
 
-export default function DesignCard({ design, onClick}: { design: Design; onClick: () => void }) {
+export default function DesignCard({
+  design,
+  onClick,
+}: {
+  design: Design;
+  onClick: () => void;
+}) {
   return (
     <article className="design-card">
       <button
@@ -32,7 +38,9 @@ export default function DesignCard({ design, onClick}: { design: Design; onClick
             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop"
             alt=""
           />
-          <span>by <strong>{design.author}</strong></span>
+          <span>
+            by <strong>{design.author}</strong>
+          </span>
         </div>
 
         <div className="card-stats">
