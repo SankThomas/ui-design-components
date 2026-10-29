@@ -24,3 +24,5 @@ The designs in this repository all come from [uidesigndaily.com](https://uidesig
 | Job Filtering Card | [https://www.youtube.com/watch?v=IeCdq6wQ3kM](https://www.youtube.com/watch?v=IeCdq6wQ3kM) | React, Vite, TailwindCSS, TypeScript |
 
 Here is my channel: [TsbSankara](https://youtube.com/tsbsankara)
+
+TODO: Update with project images
